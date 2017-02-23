@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+
+        /* Next & previous buttons */
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          margin-top: -22px;
+          padding: 16px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          position: absolute;
+          bottom: 20px;
+          width: 100%;
+          text-align: center;
+          background: black;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+          background: black;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor:pointer;
+          height: 13px;
+          width: 13px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+
+        body {
+        margin: 0;
+        padding: 0;
+        background: brown;
+        }
+
+        .mySlides{
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;    
+        }
+
+        .stretch {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        }
+
+        #firstdiv {
+        width: 100%;
+        height: 100%;
+        }
+
+        .centerdiv{
+        margin: auto;
+        text-align: center;
+        width: 70%;
+        margin-top: 5px;
+        background: white;
+        }
+
+        .tableimage{
+            width: 40%;
+            height: 100%;
+            background-position: 50% 50%;
+        }
+
+        .tableimage:hover{
+            width: 100%;
+            height: 100%;
+        }
+
+        .tablecenter{
+        width: 60%;
+        height: 100%;
+        }
+
+        .divimage {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        }
+
+        .centerdivcenter{
+        width: 100%;
+        height: 100%;
+        }
+
+        .label {
+        display: block;
+        width: 40%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        }
+
+        .input {
+        vertical-align: text-center;
+        }
+
+        .map{
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer{
+            margin-top: 5px;
+            width: 100%;
+            height: 40%;
+            border-spacing:0; 
+            border-collapse:collapse;
+            padding: 0;
+        }
+
+        .footer tr td{
+            border-spacing:0; 
+            border-collapse:collapse;  
+            padding: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="menu" class="stretch">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="img.jpg" id="firstdiv">
+            <div class="text">Buy this delicious pizza now!!</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="img2.jpg" id="firstdiv">
+            <div class="text">Buy this delicious pizza now!!</div>
+        </div> 
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="img3.jpg" id="firstdiv">
+            <div class="text">Buy this delicious pizza now!!</div>
+        </div> 
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div id="firstdiv"></div>
+
+        <div style="text-align:center; background: black">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+
+    </div>
+
+<br>
+
+
+
+
+<script>
+
+      function initMap() {
+        var myLatLng = {lat: 24.335105, lng: 54.534167};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvmPfqBCtBKoCF4F2yLc3ETOy07enkfA&callback=initMap">
+    </script>
+
+
+
+
+<script>
+    var slideIndex = 0;
+    autoSlide();
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+
+    //automatic slide show code
+    function autoSlide() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+        }
+        slideIndex++;
+        if (slideIndex> slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(autoSlide, 3000); // Change image every 2 seconds
+    }
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        menu = JSON.parse(this.responseText);
+        for (var i = 0; i < menu.length; i++){
+        
+        var children = menu[i].children;
+
+        //create the tiles 
+        //create elements
+        var div = document.createElement("DIV");
+        var table = document.createElement("TABLE");
+        var table_row = table.insertRow(table.rows.length);
+        var table_data = table_row.insertCell(0);
+        var table_data2 = table_row.insertCell(1);
+        var div_image = document.createElement("DIV");
+        var div_text = document.createElement("DIV");
+        var title = document.createElement("P");
+        var list = document.createElement("P");
+        var hr = document.createElement("HR");
+        var table2 = document.createElement("TABLE");
+
+        //assign classes and id's and styles
+        div.className = "centerdiv";
+        div.style.overflowY = "scroll";
+        table_data.className = "tableimage";
+        table_data.style.align = "left";
+        table_data2.className = "tablecenter";
+        table_data2.style.align = "center";
+        table.setAttribute("style","height: 100%;width:100%; table-layout:fixed; border-spacing: 0px; border: none");
+        table2.style.marginLeft = "20px";
+
+        //for inner divs
+        div_image.className = "divimage";
+        div_image.id = menu[i].name;
+        div_image.setAttribute("style", "background-image: url(" + menu[i].name + ".jpg);");
+        hr.setAttribute("style", "width: 60%");
+        table2.setAttribute("style", "width: 100%");
+
+        //nest the elemetns then add them to the documents body
+        div.appendChild(table);
+        table_data.appendChild(div_image);
+        table_data2.appendChild(div_text);
+
+        //fill the menu
+        var str = menu[i].name;
+        str = str.replace('_', ' ');
+        title.innerHTML += str.toUpperCase();
+        div_text.appendChild(title);
+        div_text.appendChild(hr);
+        div_text.appendChild(table2);
+        for (var j = 0; j < children.length; j++){
+            var name = document.createElement("P");
+            var ingredients = document.createElement("P");
+            var price = document.createElement("P");
+            var table2_row = table2.insertRow(table2.rows.length);
+            var table2_data = table2_row.insertCell(0);
+            var table2_data2 = table2_row.insertCell(1);
+            ingredients.style.color = "red";
+            table2_data.align = "left";
+            table2_data2.align = "right";
+            table2_data2.style.textAlign = "right";
+            table2_data2.style.verticalAlign = "top";
+            name.innerHTML =  children[j].name;
+            ingredients.innerHTML =  children[j].ingredients;
+            price.innerHTML = "<nobr>" + children[j].price + " DH" + "<nobr/>";
+            table2_data.appendChild(name);
+            table2_data.appendChild(ingredients);
+            table2_data2.appendChild(price);
+            //list.innerHTML += children[j].name + "<br/><br/>";
+        }
+
+        document.getElementById("menu").appendChild(div);
+
+        //add the listeners
+        div_image.onmouseover = function(e) {mouseOver(e)};
+        div_image.onmouseout = function(e) {mouseOut(e)};
+
+        //lock the width of div
+        var height = div.offsetHeight;
+        div.style.height = height + "px";
+
+    }
+
+//adding the map
+var map_table = document.createElement("TABLE");
+var map_table_row = map_table.insertRow(map_table.rows.length);
+var map_table_data = map_table_row.insertCell(0);
+var map_table_data2 = map_table_row.insertCell(1);
+var map = document.createElement("DIV");
+var logo_div = document.createElement("DIV");
+map_table.className = "footer";
+map.className = "map";
+logo_div.className = "map";
+map.id = "map";
+logo_div.setAttribute("style", "background-position: center; background-size: 100% 100%;  background-image: url('logo.png');");
+logo_div.style.backgroundColor = "black";
+
+map_table_data.appendChild(map);
+map_table_data2.appendChild(logo_div);
+
+document.getElementById("menu").appendChild(map_table);
+
+    }
+};
+xmlhttp.open("GET", "JSON-menu.json", true);
+xmlhttp.send();
+
+//----------------------------------------------------------------------------------------
+
+function mouseOver(e) {
+        var id = e.target.id;
+        //get the table data
+        var div = document.getElementById(id);
+        //get the table row
+        var td = div.parentElement;
+        //get the table
+        var tr = td.parentElement;
+        //get children of the table
+        var children = tr.children;
+        //get child div
+        var child = children[1];
+        child.style.display = "none";
+    }
+
+    function mouseOut(e) {
+        var id = e.target.id;
+        //get the table data
+        var div = document.getElementById(id);
+        //get the table row
+        var td = div.parentElement;
+        //get the table
+        var tr = td.parentElement;
+        //get children of the table
+        var children = tr.children;
+        //get child div
+        var child = children[1];
+        child.style.display = "table-cell";
+    }
+
+</script>
+
+</body>
+
+</html>
