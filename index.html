@@ -169,21 +169,6 @@
             height: 100%;
         }
 
-        .footer{
-            margin-top: 5px;
-            width: 100%;
-            height: 40%;
-            border-spacing:0; 
-            border-collapse:collapse;
-            padding: 0;
-        }
-
-        .footer tr td{
-            border-spacing:0; 
-            border-collapse:collapse;  
-            padding: 0;
-        }
-
 /* --------------------------------------------------------------- */
 
 .footer-distributed{
@@ -336,26 +321,32 @@ footer {
   padding: 0;
   height: 450px;
   overflow: hidden; }
+  
   footer .map {
     padding: 0; }
     footer .map iframe {
       pointer-events: none;
       width: 100%;
       height: 450px; }
+	  
   footer .contactUs {
     padding: 10px 0 25px;
     height: 450px;
     background-color: #404343; }
+	
     footer .contactUs .contactUsTitle {
       color: white;
       font-family: Impact, sans-serif;
       letter-spacing: 1.5px;
       font-size: 2.5em; }
+	  
       footer .contactUs .contactUsTitle .icon {
         width: 70px;
         margin: 0 20px 0 30px; }
+		
     footer .contactUs .landline {
       margin: 5px 30px 5px 120px; }
+	  
     footer .contactUs .contactUsText {
       color: white;
       font-family: Gurmukhi MN, sans-serif;
@@ -363,17 +354,22 @@ footer {
       font-size: 20px;
       margin: 5px 30px 5px 120px;
       position: relative; }
+	  
     footer .contactUs .contactUsBreak {
       border-bottom: 1px solid #95989A;
       margin: 15px 0 15px 120px;
       width: 250px; }
+	  
     footer .contactUs .socialMedia {
       padding: 0 60px; }
+	  
       footer .contactUs .socialMedia .icon {
         float: right;
         padding: 5px; }
+		
     footer .contactUs p.copyrights:hover {
       color: white; }
+	  
     footer .contactUs p.copyrights {
       font-family: "Gurmukhi MN";
       font-size: 12px;
@@ -386,9 +382,11 @@ footer {
       color: grey;
       text-align: center;
       margin: 0; }
+	  
       footer .contactUs p.copyrights a {
         text-decoration: none;
         color: inherit; }
+		
       footer .contactUs p.copyrights a:hover {
         text-decoration: none; }
 
@@ -655,27 +653,10 @@ xmlhttp.onreadystatechange = function() {
         div.style.height = height + "px";
 
     }
-
-//adding the map
-//var map_table = document.createElement("TABLE"); //COMMENTED OUT TO REMOVE THE FOOTER
-var map_table_row = map_table.insertRow(map_table.rows.length);
-var map_table_data = map_table_row.insertCell(0);
-var map_table_data2 = map_table_row.insertCell(1);
-var map = document.createElement("DIV");
-var logo_div = document.createElement("DIV");
-map_table.className = "footer";
-map.className = "map";
-logo_div.className = "map";
-map.id = "map";
-logo_div.setAttribute("style", "background-position: center; background-size: 100% 100%;  background-image: url('logo.png');");
-logo_div.style.backgroundColor = "black";
-
-map_table_data.appendChild(map);
-map_table_data2.appendChild(logo_div);
-
-document.getElementById("menu").appendChild(map_table);
-
-    }
+	
+	document.getElementById("menu").innerHTML += "<footer class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n    <div class=\"map col-md-6 col-sm-6 col-xs-12\">\r\n        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1032.8843509168178!2d54.53348440988816!3d24.334920998734056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDIwJzA1LjciTiA1NMKwMzInMDIuOCJF!5e0!3m2!1sen!2s!4v1486851847129\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe>\r\n    </div>\r\n    <div id=\"contactUs\" class=\"contactUs col-md-6 col-sm-6 col-xs-12\">\r\n        <h2 class=\"contactUsTitle\"><img src=\"compass.png\" class=\"icon\"/>Contact Us</h2>\r\n        <div class=\"contactUsBreak\"></div>\r\n        <p class=\"contactUsText\"><strong>Location:</strong> Abu Dhabi, Musaffah Shabiya, East 10 Behind Fresh & More Super Market</p>\r\n        <div class=\"contactUsBreak\"></div>\r\n        <p class=\"contactUsTitle landline\">02-5559744</p>\r\n        <p class=\"contactUsText email\">info@Napolitano.com</p>\r\n        <div class=\"contactUsBreak\"></div>\r\n        <div class=\"socialMedia\">\r\n            <a href=\"#\" class=\"icon\"><img src=\"twitter.png\" width=\"40px\" />\r\n            </a>\r\n            <a href=\"#\" class=\"icon\"><img src=\"instagram.png\" width=\"30px\" />\r\n            </a>\r\n            <!-- todo add facebook-->\r\n        </div>\r\n    </div>\r\n</footer>";
+	
+  }
 };
 xmlhttp.open("GET", "JSON-menu.json", true);
 xmlhttp.send();
@@ -714,29 +695,6 @@ function mouseOver(e) {
 
 </script>
 
-<footer class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="map col-md-6 col-sm-6 col-xs-12">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1032.8843509168178!2d54.53348440988816!3d24.334920998734056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDIwJzA1LjciTiA1NMKwMzInMDIuOCJF!5e0!3m2!1sen!2s!4v1486851847129" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
-    </div>
-    <div id="contactUs" class="contactUs col-md-6 col-sm-6 col-xs-12">
-        <h2 class="contactUsTitle"><img src="compass.png" class="icon"/>Contact Us</h2>
-        <div class="contactUsBreak"></div>
-        <p class="contactUsText"><strong>Location:</strong> Abu Dhabi, Musaffah Shabiya, East 10 Behind Fresh & More Super Market</p>
-        <div class="contactUsBreak"></div>
-        <p class="contactUsTitle landline">02-5559744</p>
-        <p class="contactUsText email">info@Napolitano.com</p>
-        <div class="contactUsBreak"></div>
-        <div class="socialMedia">
-            <a href="#" class="icon"><img src="twitter.png" width="40px" />
-            </a>
-            <a href="#" class="icon"><img src="instagram.png" width="30px" />
-            </a>
-            <!-- todo add facebook-->
-        </div>
-    </div>
-</footer>
-
-</div>
 </body>
 
 </html>
